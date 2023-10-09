@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Order
 {
@@ -64,7 +60,25 @@ namespace Order
         {
             return GetInfo();
         }
-         
+        
+    
+        public override bool Equals(object? obj)
+        {
+            
+           if (obj is Order)
+            {
+                var compareOrder = obj as Order;
+                return compareOrder.NameOfGoods == NameOfGoods && compareOrder.Price == Price && compareOrder.TelephoneNumber == TelephoneNumber && compareOrder.Adress == Adress;
+
+            }
+
+            return false;
+          
+        }
+
+           
+    
+    
         public string GetInfoTelNumber()
         {
             return _telephoneNumber.ToString();
