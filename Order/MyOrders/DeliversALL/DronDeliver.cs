@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Order.MyOrders.DeliversALL
+namespace Order1.MyOrders.DeliversALL
 
 {
     internal class DronDeliver : IDelivery

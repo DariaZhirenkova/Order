@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Order.MyOrders.DeliversALL
+namespace Order1.MyOrders.DeliversALL
 {
-    internal class CarDiliverMan : IDelivery
+    public class CarDiliverMan : IDelivery
     {
         List<Order> _orders;
 
@@ -15,7 +15,7 @@ namespace Order.MyOrders.DeliversALL
             _orders = orders;
         }
 
-        public int id =3;
+       // public int id =3;
 
         public Order DeliverOrder(Order order)
         {
@@ -30,9 +30,7 @@ namespace Order.MyOrders.DeliversALL
                 return resultOrder;
 
             }
-           
-
-            return null;
+           return null;
         }
 
         public int ExpectedDeliveryTime(Order order)

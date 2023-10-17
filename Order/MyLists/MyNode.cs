@@ -1,6 +1,6 @@
 ﻿
 
-namespace Order
+namespace Order1
 {
     public class MyNode<T>
     {

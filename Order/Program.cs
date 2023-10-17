@@ -1,16 +1,11 @@
-﻿/*Task 6
-1. Добавить в программу интерфейс IDelivery с методами DeliverOrder(Order) и ExpectedDeliveryTime(Order)
-(метод должен возвращать примерное время доставки в зависимости отособенностей заказа)
-2. Реализовать интерфейс IDelivery  нескольких сущностях- пеший доставщик,мотодоставщик, автодоставщик, дрон-доставщик. 
-3. Добавить в программу  сущность DeliveryService (служба доставки, включает в себя список актуальных заказов и список доставщиков)
-4. Релизовать в DeliveryService методы по добавлению и доставке заказов (при доставке у всех доставщиков из списка запрашивается время 
-доставки, и выбирается доставщик, предложивший лучший вариант)
-5. Создать и доставить несколько заказов с исполозванием DeliveryService
+﻿/*Task 7
+1. Для всех свойств в классах заказа ввести проверку валидности значений в set части, в случае невалидности введенного значения выбрасывать исключения 
+2. Написать юнит тесты для всех сущностей, включая DeliveryService
 */
-using Order.MyOrders;
-using Order.MyOrders.DeliversALL;
+using Order1.MyOrders;
+using Order1.MyOrders.DeliversALL;
 
-namespace Order
+namespace Order1
 {
     internal class Program
     {     
@@ -18,14 +13,19 @@ namespace Order
         static void Main(string[] args)
         {
             DeliveryService aliexpress = new DeliveryService("AliExpress");
-            
-            aliexpress.AddOrder(new VIPOrder("Iphone", 3759154033366L, 899, "Minsk", "pres"));
-            aliexpress.AddOrder(new DiscountOrder("Pasta", 8029644095519L, 10f, "Brest", 2));
-            aliexpress.AddOrder(new DiscountOrder("TV", 1119546374885L, 234, "Ainsk", 5));
-            aliexpress.AddOrder(new DiscountOrder("Cake", 4529644095519L, 500, "Vrest", 2));
-            aliexpress.AddOrder(new VIPOrder("Whyski", 8029644095519L, 11f, "Brest", "pres2"));
-            aliexpress.AddOrder(new VIPOrder("Burger", 3759154035666L, 10.23f, "Minsk", "pres"));
-
+            try
+            {
+                aliexpress.AddOrder(new VIPOrder("Iphone", 3759154036666L, 899, "Minsk", "pres"));
+                aliexpress.AddOrder(new DiscountOrder("Pasta", 8029644095519L, 10f, "Brest", 2));
+                aliexpress.AddOrder(new DiscountOrder("TV", 1119546374885L, 234, "Ainsk", 5));
+                aliexpress.AddOrder(new DiscountOrder("Cake", 4529644095519L, 500, "Vrest", 2));
+                aliexpress.AddOrder(new VIPOrder("Whyski", 8029644095519L, 11f, "Brest", "pres2"));
+                aliexpress.AddOrder(new VIPOrder("Burger", 3759154035666L, 10.23f, "Minsk", "pres"));
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
            aliexpress.OrderProduct(new VIPOrder("Burger", 3759154035666L, 10.23f, "Minsk", "pres"));
            aliexpress.OrderProduct(new VIPOrder("Whyski", 8029644095519L, 11f, "Brest", "pres2"));

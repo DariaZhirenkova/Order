@@ -1,7 +1,7 @@
 ﻿
-namespace Order.Compare
+namespace Order1.Compare
 {
-    internal class SortPrice : IComparer<Order>
+    public class SortPrice : IComparer<Order>
     {
       
         public int Compare(Order? x, Order? y)

@@ -1,5 +1,5 @@
 ﻿
-namespace Order.MyOrders.DeliversALL
+namespace Order1.MyOrders.DeliversALL
 {
     internal class WalkingDiliverMan :  IDelivery
     {

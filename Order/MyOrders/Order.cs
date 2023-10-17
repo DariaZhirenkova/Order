@@ -1,10 +1,25 @@
-﻿
-
-namespace Order
+﻿namespace Order1
 {
     public abstract class Order : IComparable<Order>
     {
-        public string NameOfGoods { get; set;}// свойства(Property), геттеры сеттеры 
+        private string _name;
+        public string NameOfGoods {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Your name is null");
+                }
+                else
+                {
+                    _name = value;
+                }
+            }
+        }// свойства(Property), геттеры сеттеры 
 
         private long _telephoneNumber;
         public long TelephoneNumber {
@@ -15,7 +30,11 @@ namespace Order
             set 
             {
                 string str = value.ToString();
-                if (str.Length == 13)
+                if (str.Length != 13)
+                {
+                    throw new ArgumentException("Incorrect input telephine number");
+                }
+                else
                 {
                     _telephoneNumber = value;
                 }
@@ -30,16 +49,40 @@ namespace Order
             }
             set
             {
-                if (value > 0f && value <= 1000f)
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Wrong price!!!");
+                }
+                else
                 {
                     _price = value;
                 }
             }
         }
-        public string Adress { get; set; }
-
-        public Order(string nameOfGoods1, long telephoneNumber1, float price1, string adress1)// конструктор, никогда ничего не возвращает
+        private string _adress;
+        public string Adress
         {
+            get
+            {
+                return _adress;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Input adress");
+                }
+                else
+                {
+                    _adress = value;    
+                }
+            }
+        }
+
+        public Order(string nameOfGoods1, long telephoneNumber1, float price1, string adress1)
+        {
+        //}// конструктор, никогда ничего не возвращает
+        
             NameOfGoods = nameOfGoods1;
             TelephoneNumber = telephoneNumber1;
             Price = price1;
@@ -56,10 +99,10 @@ namespace Order
         public abstract string GetInfo();
         
 
-        public override string ToString()
-        {
-            return GetInfo();
-        }
+       public override string ToString()
+      {
+        return GetInfo();
+      }
         
     
         public override bool Equals(object? obj)

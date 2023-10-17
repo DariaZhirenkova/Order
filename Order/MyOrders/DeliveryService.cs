@@ -1,8 +1,8 @@
-﻿using Order.MyOrders.DeliversALL;
+﻿using Order1.MyOrders.DeliversALL;
 
-namespace Order.MyOrders
+namespace Order1.MyOrders
 {
-    internal class DeliveryService
+    public class DeliveryService
     {
         List<Order> _orders = new List<Order>();
         List<IDelivery> _delivers = new List<IDelivery>();

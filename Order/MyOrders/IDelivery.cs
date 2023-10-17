@@ -1,5 +1,5 @@
 ﻿
-namespace Order.MyOrders
+namespace Order1.MyOrders
 {
     internal interface IDelivery
     {
